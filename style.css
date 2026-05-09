@@ -1,0 +1,462 @@
+/* style.css */
+:root {
+  --bg: #0a0a0a;
+  --surface: #121212;
+  --surface2: #1e1e1e;
+  --text: #e0e0e0;
+  --text-secondary: #a0a0a0;
+  --accent: #4a9eff;
+  --border: #2a2a2a;
+  --radius: 8px;
+  --glass-blur: 12px;
+  --glass-opacity: 0.15;
+  --font-ui: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-display: 'Inter', system-ui, -apple-system, sans-serif;
+  --animation-speed: 1;
+  --reduce-motion: 0;
+  --ui-scale: 1;
+  --glow-intensity: 0.5;
+  --border-style: solid;
+  --layout-density: normal;
+}
+
+[data-theme="default-dark"] {
+  --bg: #0a0a0a;
+  --surface: #121212;
+  --surface2: #1e1e1e;
+  --text: #e0e0e0;
+  --text-secondary: #a0a0a0;
+  --accent: #4a9eff;
+  --border: #2a2a2a;
+}
+
+/* Themes will be defined by JS dynamic style injection */
+/* Additional global styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--font-ui);
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  transition: background 0.3s, color 0.3s;
+  overflow-x: hidden;
+}
+
+body.animation-reduced .animated,
+body.animation-reduced .transition,
+body.animation-reduced .smooth {
+  animation: none !important;
+  transition: none !important;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  background: var(--surface);
+  border-bottom: 1px var(--border-style) var(--border);
+  padding: 0 16px;
+  height: 48px;
+  gap: 16px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: blur(var(--glass-blur));
+  background: rgba(18, 18, 18, var(--glass-opacity));
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 600;
+  font-family: var(--font-display);
+}
+
+.nav-links {
+  display: flex;
+  gap: 4px;
+  flex: 1;
+  overflow-x: auto;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 6px 10px;
+  border-radius: var(--radius);
+  text-decoration: none;
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  white-space: nowrap;
+  transition: background 0.2s, color 0.2s;
+}
+
+.nav-item svg {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
+.nav-item:hover {
+  background: var(--surface2);
+  color: var(--text);
+}
+
+.nav-item.active {
+  background: var(--accent);
+  color: #fff;
+}
+
+.footer {
+  margin-top: auto;
+  text-align: center;
+  padding: 12px;
+  color: var(--text-secondary);
+  font-size: 0.75rem;
+  border-top: 1px var(--border-style) var(--border);
+}
+
+/* Home Page */
+.home-page {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-container {
+  width: 100%;
+  max-width: 640px;
+  text-align: center;
+}
+
+.search-engine-indicator {
+  margin-bottom: 12px;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+.search-form {
+  display: flex;
+  align-items: center;
+  background: var(--surface);
+  border: 1px var(--border-style) var(--border);
+  border-radius: 50px;
+  padding: 8px 16px;
+  backdrop-filter: blur(var(--glass-blur));
+  background: rgba(18, 18, 18, var(--glass-opacity));
+}
+
+.search-icon {
+  color: var(--text-secondary);
+  margin-right: 8px;
+}
+
+.search-input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  color: var(--text);
+  font-size: 1.1rem;
+  outline: none;
+}
+
+.search-button {
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  padding: 8px 20px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background 0.2s;
+}
+
+.search-button:hover {
+  filter: brightness(1.1);
+}
+
+/* Tab pages (Apps, Games) */
+.tab-page {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.tab-bar {
+  display: flex;
+  align-items: center;
+  background: var(--surface);
+  border-bottom: 1px var(--border-style) var(--border);
+  padding: 0 4px;
+  height: 36px;
+  gap: 2px;
+}
+
+.tab-list {
+  display: flex;
+  flex: 1;
+  overflow-x: auto;
+  gap: 2px;
+}
+
+.tab-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  border-radius: 4px 4px 0 0;
+  background: var(--surface2);
+  cursor: pointer;
+  font-size: 0.8rem;
+  white-space: nowrap;
+  max-width: 160px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.tab-item.active-tab {
+  background: var(--bg);
+  border-bottom: 2px solid var(--accent);
+}
+
+.tab-item .close-tab {
+  margin-left: 4px;
+  opacity: 0.6;
+  cursor: pointer;
+}
+
+.new-tab-btn {
+  background: transparent;
+  border: none;
+  color: var(--text-secondary);
+  padding: 4px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.tab-content {
+  flex: 1;
+  position: relative;
+}
+
+.tab-content iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  background: #fff; /* placeholder */
+}
+
+.app-grid, .game-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  gap: 12px;
+  padding: 16px;
+  background: var(--bg);
+  border-top: 1px var(--border-style) var(--border);
+}
+
+.app-card, .game-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 12px;
+  border-radius: var(--radius);
+  background: var(--surface);
+  cursor: pointer;
+  transition: background 0.2s;
+  gap: 8px;
+}
+
+.app-card:hover, .game-card:hover {
+  background: var(--surface2);
+}
+
+/* Dev placeholder pages */
+.dev-page {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dev-placeholder {
+  text-align: center;
+  color: var(--text-secondary);
+}
+
+.dev-placeholder svg {
+  margin-bottom: 12px;
+}
+
+/* Tabs manager page */
+.tabs-manager-page {
+  flex: 1;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.tabs-header {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.tabs-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tab-card {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  background: var(--surface);
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.tab-card:hover {
+  background: var(--surface2);
+}
+
+.tab-card.active-tab {
+  border: 1px solid var(--accent);
+}
+
+.tab-viewer {
+  flex: 1;
+  min-height: 200px;
+}
+
+.tab-viewer iframe {
+  width: 100%;
+  height: 100%;
+  border: 1px var(--border-style) var(--border);
+  border-radius: var(--radius);
+}
+
+/* Settings page */
+.settings-page {
+  flex: 1;
+  display: flex;
+  gap: 0;
+}
+
+.settings-sidebar {
+  width: 200px;
+  background: var(--surface);
+  border-right: 1px var(--border-style) var(--border);
+  padding: 12px 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.settings-tab {
+  padding: 10px 16px;
+  cursor: pointer;
+  color: var(--text-secondary);
+  border-left: 3px solid transparent;
+  transition: background 0.2s, color 0.2s;
+}
+
+.settings-tab:hover {
+  background: var(--surface2);
+  color: var(--text);
+}
+
+.settings-tab.active {
+  background: var(--surface2);
+  color: var(--text);
+  border-left-color: var(--accent);
+}
+
+.settings-content {
+  flex: 1;
+  padding: 24px;
+  overflow-y: auto;
+}
+
+.setting-group {
+  margin-bottom: 24px;
+}
+
+.setting-group h3 {
+  margin-bottom: 12px;
+  font-size: 1rem;
+}
+
+.theme-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  gap: 8px;
+}
+
+.theme-card {
+  height: 60px;
+  border-radius: var(--radius);
+  cursor: pointer;
+  border: 2px solid transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7rem;
+  transition: border 0.2s;
+}
+
+.theme-card.selected {
+  border-color: var(--accent);
+}
+
+/* Custom cursor */
+.custom-cursor {
+  position: fixed;
+  width: 8px;
+  height: 8px;
+  background: var(--accent);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  display: none;
+  box-shadow: 0 0 12px var(--accent);
+}
+
+.custom-cursor-ring {
+  position: fixed;
+  width: 24px;
+  height: 24px;
+  border: 2px solid var(--accent);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9998;
+  transform: translate(-50%, -50%);
+  display: none;
+}
+
+body.cursor-custom .custom-cursor,
+body.cursor-custom .custom-cursor-ring {
+  display: block;
+}
+
+body.cursor-custom * {
+  cursor: none !important;
+}
