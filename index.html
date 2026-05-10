@@ -856,151 +856,13 @@ body.cursor-effects-on * { cursor: none; }
 }
 .ocean-search-input::placeholder { color: var(--text-dim); }
 .ocean-search-powered {
-  display: flex;
-  align-items: center;
-  gap: 0.35rem;
-  white-space: nowrap;
-  flex-shrink: 0;
-}
-.search-provider-badge {
-  display: flex;
-  align-items: center;
-  gap: 0.3rem;
-  border: 1px solid var(--accent);
-  border-radius: 100px;
-  padding: 0.18rem 0.55rem 0.18rem 0.4rem;
   font-family: var(--font-mono);
-  font-size: 0.55rem;
-  color: var(--accent);
-  letter-spacing: 0.08em;
-  box-shadow: var(--glow-soft);
-  transition: all 0.3s;
-  position: relative;
-  overflow: hidden;
-  cursor: pointer;
-  user-select: none;
-}
-.search-provider-badge:hover {
-  background: rgba(255,255,255,0.04);
-  box-shadow: var(--glow);
-}
-.search-provider-dot {
-  width: 6px; height: 6px;
-  border-radius: 50%;
-  flex-shrink: 0;
-  animation: providerDotBlink 1.4s ease-in-out infinite;
-}
-@keyframes providerDotBlink {
-  0%, 100% { background: #ff6a00; box-shadow: 0 0 4px #ff6a00; opacity: 1; }
-  50%       { background: #111111; box-shadow: 0 0 2px #333; opacity: 0.4; }
-}
-.search-provider-name {
-  font-family: var(--font-mono);
-  font-size: 0.55rem;
-  color: var(--accent);
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  transition: opacity 0.2s;
-}
-
-/* ── SEARCH SETTINGS ── */
-.search-provider-categories {
-  display: flex; flex-direction: column; gap: 1.5rem;
-}
-.search-category-label {
-  font-family: var(--font-mono);
-  font-size: 0.6rem;
-  letter-spacing: 0.3em;
-  color: var(--accent);
-  text-transform: uppercase;
-  margin-bottom: 0.6rem;
-  display: flex; align-items: center; gap: 0.5rem;
-}
-.search-category-label::after {
-  content: ''; flex: 1; height: 1px;
-  background: var(--border);
-}
-.search-provider-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-  gap: 0.5rem;
-}
-.search-provider-card {
-  display: flex; align-items: center; gap: 0.55rem;
-  padding: 0.55rem 0.7rem;
-  border: 1px solid var(--glass-border);
-  border-radius: var(--radius);
-  background: var(--surface);
-  cursor: pointer;
-  transition: all 0.18s;
-  position: relative;
-  overflow: hidden;
-  user-select: none;
-}
-.search-provider-card:hover {
-  border-color: var(--border);
-  background: rgba(255,255,255,0.04);
-  transform: translateY(-1px);
-}
-.search-provider-card.active {
-  border-color: var(--accent);
-  background: rgba(255,255,255,0.06);
-  box-shadow: var(--glow-soft);
-}
-.search-provider-card.active::before {
-  content: '';
-  position: absolute; top: 0; left: 0;
-  width: 3px; height: 100%;
-  background: var(--accent);
-}
-.search-provider-emoji {
-  font-size: 1rem;
-  flex-shrink: 0;
-  width: 22px; text-align: center;
-}
-.search-provider-card-name {
-  font-family: var(--font-ui);
-  font-size: 0.75rem;
-  color: var(--text);
-  flex: 1;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-.search-provider-fav-btn {
-  width: 18px; height: 18px;
-  display: flex; align-items: center; justify-content: center;
-  border: none; background: transparent;
-  cursor: pointer; flex-shrink: 0;
-  opacity: 0; transition: opacity 0.15s;
-  font-size: 0.75rem;
-}
-.search-provider-card:hover .search-provider-fav-btn { opacity: 0.6; }
-.search-provider-fav-btn.pinned { opacity: 1 !important; }
-
-.search-favorites-bar {
-  display: flex; flex-wrap: wrap; gap: 0.4rem;
-  padding: 0.6rem;
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  min-height: 42px;
-  align-items: center;
-}
-.search-fav-chip {
-  display: flex; align-items: center; gap: 0.3rem;
-  padding: 0.25rem 0.6rem;
-  border: 1px solid var(--border);
-  border-radius: 100px;
-  background: var(--surface2);
-  font-family: var(--font-mono); font-size: 0.65rem;
+  font-size: 0.58rem;
   color: var(--text-dim);
-  cursor: pointer;
-  transition: all 0.15s;
+  letter-spacing: 0.1em;
+  white-space: nowrap;
+  opacity: 0.6;
 }
-.search-fav-chip:hover { color: var(--accent); border-color: var(--accent); }
-.search-fav-chip.active-chip { color: var(--accent); border-color: var(--accent); box-shadow: var(--glow-soft); }
-.search-fav-chip-emoji { font-size: 0.85rem; }
 .ocean-search-btn {
   width: 38px; height: 38px;
   border-radius: 50%;
@@ -1994,12 +1856,7 @@ input[type=radio]:checked + .icon-opt-label { color: var(--accent); border-color
         <div class="ocean-search-bar">
           <svg class="ocean-search-icon" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
           <input class="ocean-search-input" id="ocean-search-input" type="text" placeholder="Dive into the ocean..." autocomplete="off" spellcheck="false">
-          <div class="ocean-search-powered">
-            <div class="search-provider-badge" id="search-provider-badge" title="Click to change search provider" onclick="document.querySelector('.sidebar-btn[data-panel=settings]').click();setTimeout(()=>{document.querySelector('.settings-nav-btn[data-section=search]').click();},200)">
-              <span class="search-provider-dot" id="search-dot"></span>
-              <span class="search-provider-name" id="search-provider-name">Google</span>
-            </div>
-          </div>
+          <div class="ocean-search-powered">powered by Google</div>
           <button class="ocean-search-btn" id="ocean-search-btn">
             <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
           </button>
@@ -2076,10 +1933,6 @@ input[type=radio]:checked + .icon-opt-label { color: var(--accent); border-color
           <button class="settings-nav-btn" data-section="labs">
             <svg viewBox="0 0 24 24"><path d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v18m0 0h10a2 2 0 0 0 2-2v-4M9 21H5a2 2 0 0 1-2-2v-4m0 0h18"/><path d="M7 14l2-2 2 2 4-4 2 2"/></svg>
             Labs
-          </button>
-          <button class="settings-nav-btn" data-section="search">
-            <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-            Search
           </button>
         </div>
 
@@ -2617,30 +2470,6 @@ input[type=radio]:checked + .icon-opt-label { color: var(--accent); border-color
             </div>
           </div>
 
-          </div>
-
-          <!-- SEARCH -->
-          <div class="settings-section" id="section-search">
-            <div class="settings-section-title">Search Provider</div>
-
-            <!-- Favorites Bar -->
-            <div class="settings-group">
-              <div class="settings-group-label">Pinned Favorites</div>
-              <div class="setting-desc" style="font-family:var(--font-mono);font-size:0.62rem;color:var(--text-dim);margin-bottom:0.6rem">Click a pinned provider to instantly switch the search bar.</div>
-              <div class="search-favorites-bar" id="search-favorites-bar">
-                <!-- populated by JS -->
-              </div>
-            </div>
-
-            <!-- Provider List -->
-            <div class="settings-group">
-              <div class="settings-group-label">All Providers — click to set default · ★ to pin</div>
-              <div class="search-provider-categories" id="search-provider-categories">
-                <!-- populated by JS -->
-              </div>
-            </div>
-          </div>
-
         </div><!-- /settings-content -->
       </div><!-- /settings-layout -->
     </div><!-- /panel-settings -->
@@ -2807,14 +2636,14 @@ const GAMES = [
   {
     id: 'regn',
     name: 'Re-Gn · Shrimpy',
-    desc: 'Re-Gn by Shrimpy — exclusive browser game',
+    desc: 'Re-Gn by Shrimpy — browser games',
     icon: `<svg viewBox="0 0 24 24" style="width:28px;height:28px;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round"><rect x="2" y="6" width="20" height="12" rx="2"/><path d="M6 12h4m-2-2v4"/><circle cx="16" cy="10" r="1" fill="currentColor" stroke="none"/><circle cx="18" cy="12" r="1" fill="currentColor" stroke="none"/><circle cx="16" cy="14" r="1" fill="currentColor" stroke="none"/><circle cx="14" cy="12" r="1" fill="currentColor" stroke="none"/></svg>`,
     rawUrl: 'https://raw.githubusercontent.com/Shrimpy-com/Re-Gn-By-Shrimpy/refs/heads/main/Re-Gn.Shrimpy.V1.html',
   },
   {
     id: 'shrimpindo',
     name: 'Shrimpindo',
-    desc: 'Shrimpindo — play in your browser',
+    desc: 'Shrimpindo — Nitendo in your browser',
     icon: `<svg viewBox="0 0 24 24" style="width:28px;height:28px;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round"><rect x="7" y="2" width="10" height="18" rx="2"/><circle cx="12" cy="17" r="1" fill="currentColor" stroke="none"/><line x1="9" y1="7" x2="15" y2="7"/><line x1="9" y1="10" x2="15" y2="10"/></svg>`,
     rawUrl: 'https://raw.githubusercontent.com/Shrimpy-com/Shrimpindo/refs/heads/main/Shrimpindo.html',
   },
@@ -2879,9 +2708,6 @@ const DEFAULT_SETTINGS = {
   safePageUrl: 'https://google.com',
   // Labs
   commandPalette: false,
-  // Search
-  searchProvider: 'google',
-  searchFavorites: ['google','duckduckgo','perplexity','claude'],
 };
 
 let state = {
@@ -4888,9 +4714,6 @@ function applyAllSettings() {
 
   renderThemeGrid();
   renderEffectGrid();
-  updateSearchBadge();
-  renderSearchSettings();
-  renderSearchFavorites();
 }
 
 function syncFormControls() {
@@ -5283,189 +5106,17 @@ setInterval(() => {
 }, 5000);
 
 /* ============================================================
-   SEARCH PROVIDERS DATA
-   ============================================================ */
-const SEARCH_PROVIDERS = [
-  {
-    category: '🔍 Search Engines',
-    providers: [
-      { id:'google',      name:'Google Search',    emoji:'🌐', url:'https://www.google.com/search?q={q}' },
-      { id:'bing',        name:'Bing',              emoji:'🔷', url:'https://www.bing.com/search?q={q}' },
-      { id:'yahoo',       name:'Yahoo Search',      emoji:'🟣', url:'https://search.yahoo.com/search?p={q}' },
-      { id:'duckduckgo',  name:'DuckDuckGo',        emoji:'🦆', url:'https://duckduckgo.com/?q={q}' },
-      { id:'baidu',       name:'Baidu',             emoji:'🇨🇳', url:'https://www.baidu.com/s?wd={q}' },
-      { id:'yandex',      name:'Yandex',            emoji:'🔴', url:'https://yandex.com/search/?text={q}' },
-      { id:'ecosia',      name:'Ecosia',            emoji:'🌱', url:'https://www.ecosia.org/search?q={q}' },
-      { id:'startpage',   name:'Startpage',         emoji:'🛡️', url:'https://www.startpage.com/search?q={q}' },
-      { id:'brave',       name:'Brave Search',      emoji:'🦁', url:'https://search.brave.com/search?q={q}' },
-      { id:'swisscows',   name:'Swisscows',         emoji:'🐄', url:'https://swisscows.com/web?query={q}' },
-      { id:'qwant',       name:'Qwant',             emoji:'🌸', url:'https://www.qwant.com/?q={q}' },
-      { id:'ask',         name:'Ask.com',           emoji:'❓', url:'https://www.ask.com/web?q={q}' },
-      { id:'aol',         name:'AOL Search',        emoji:'🟡', url:'https://search.aol.com/aol/search?q={q}' },
-      { id:'naver',       name:'Naver',             emoji:'🇰🇷', url:'https://search.naver.com/search.naver?query={q}' },
-      { id:'sogou',       name:'Sogou',             emoji:'🌊', url:'https://www.sogou.com/web?query={q}' },
-      { id:'shenma',      name:'Shenma',            emoji:'🐎', url:'https://m.sm.cn/s?q={q}' },
-    ]
-  },
-  {
-    category: '🤖 AI Chatbots',
-    providers: [
-      { id:'chatgpt',     name:'ChatGPT',           emoji:'🟢', url:'https://chatgpt.com/?q={q}' },
-      { id:'claude',      name:'Claude',            emoji:'🟠', url:'https://claude.ai/new?q={q}' },
-      { id:'gemini',      name:'Gemini',            emoji:'💫', url:'https://gemini.google.com/app?q={q}' },
-      { id:'copilot',     name:'Copilot',           emoji:'🔵', url:'https://copilot.microsoft.com/?q={q}' },
-      { id:'perplexity',  name:'Perplexity AI',     emoji:'🔮', url:'https://www.perplexity.ai/search?q={q}' },
-      { id:'grok',        name:'Grok',              emoji:'⚡', url:'https://x.com/i/grok?text={q}' },
-      { id:'metaai',      name:'Meta AI',           emoji:'🌀', url:'https://www.meta.ai/?q={q}' },
-      { id:'poe',         name:'Poe',               emoji:'📖', url:'https://poe.com/' },
-      { id:'characterai', name:'Character.AI',      emoji:'🎭', url:'https://character.ai/' },
-      { id:'deepseek',    name:'DeepSeek',          emoji:'🔬', url:'https://chat.deepseek.com/' },
-      { id:'mistral',     name:'Mistral Chat',      emoji:'🌪️', url:'https://chat.mistral.ai/chat' },
-      { id:'piai',        name:'Pi AI',             emoji:'🥧', url:'https://pi.ai/talk' },
-    ]
-  },
-  {
-    category: '🎨 Image AI',
-    providers: [
-      { id:'dalle',       name:'DALL·E',            emoji:'🖼️', url:'https://chatgpt.com/?q=generate+image:+{q}' },
-      { id:'midjourney',  name:'Midjourney',        emoji:'🎨', url:'https://www.midjourney.com/' },
-      { id:'stablediff',  name:'Stable Diffusion',  emoji:'🌈', url:'https://stablediffusionweb.com/#ai-image-generator' },
-      { id:'firefly',     name:'Adobe Firefly',     emoji:'🔥', url:'https://firefly.adobe.com/' },
-      { id:'leonardo',    name:'Leonardo AI',       emoji:'🦅', url:'https://leonardo.ai/' },
-    ]
-  },
-  {
-    category: '🎙️ Voice / Media AI',
-    providers: [
-      { id:'elevenlabs',  name:'ElevenLabs',        emoji:'🔊', url:'https://elevenlabs.io/' },
-      { id:'suno',        name:'Suno AI',           emoji:'🎵', url:'https://suno.com/' },
-      { id:'runway',      name:'Runway ML',         emoji:'🎬', url:'https://runwayml.com/' },
-      { id:'pika',        name:'Pika Labs',         emoji:'💥', url:'https://pika.art/' },
-    ]
-  },
-];
-
-function getProviderById(id) {
-  for (const cat of SEARCH_PROVIDERS) {
-    const p = cat.providers.find(p => p.id === id);
-    if (p) return p;
-  }
-  return SEARCH_PROVIDERS[0].providers[0]; // fallback: google
-}
-
-function buildSearchUrl(provider, query) {
-  return provider.url.replace('{q}', encodeURIComponent(query));
-}
-
-function updateSearchBadge() {
-  const p = getProviderById(state.settings.searchProvider);
-  const nameEl = document.getElementById('search-provider-name');
-  if (nameEl) nameEl.textContent = p.name;
-}
-
-/* ============================================================
    OCEAN SEARCH BAR
    ============================================================ */
 function doOceanSearch() {
   const q = document.getElementById('ocean-search-input').value.trim();
   if (!q) return;
-  const provider = getProviderById(state.settings.searchProvider);
-  window.open(buildSearchUrl(provider, q), '_blank');
+  window.open(`https://www.google.com/search?q=${encodeURIComponent(q)}`, '_blank');
 }
 document.getElementById('ocean-search-btn').addEventListener('click', doOceanSearch);
 document.getElementById('ocean-search-input').addEventListener('keydown', e => {
   if (e.key === 'Enter') doOceanSearch();
 });
-
-/* ============================================================
-   SEARCH SETTINGS RENDERING
-   ============================================================ */
-function renderSearchSettings() {
-  const container = document.getElementById('search-provider-categories');
-  if (!container) return;
-  container.innerHTML = '';
-
-  SEARCH_PROVIDERS.forEach(cat => {
-    const catDiv = document.createElement('div');
-    catDiv.innerHTML = `<div class="search-category-label">${cat.category}</div>`;
-    const grid = document.createElement('div');
-    grid.className = 'search-provider-grid';
-
-    cat.providers.forEach(p => {
-      const isActive  = state.settings.searchProvider === p.id;
-      const isFav     = (state.settings.searchFavorites || []).includes(p.id);
-      const card = document.createElement('div');
-      card.className = 'search-provider-card' + (isActive ? ' active' : '');
-      card.title = p.name;
-      card.innerHTML = `
-        <span class="search-provider-emoji">${p.emoji}</span>
-        <span class="search-provider-card-name">${esc(p.name)}</span>
-        <button class="search-provider-fav-btn ${isFav ? 'pinned' : ''}" title="${isFav ? 'Unpin' : 'Pin to favorites'}">${isFav ? '★' : '☆'}</button>
-      `;
-
-      // Select provider
-      card.addEventListener('click', (e) => {
-        if (e.target.closest('.search-provider-fav-btn')) return;
-        state.settings.searchProvider = p.id;
-        saveSettings();
-        updateSearchBadge();
-        renderSearchSettings();
-        renderSearchFavorites();
-        toast(`Search: ${p.name}`);
-      });
-
-      // Toggle favorite
-      card.querySelector('.search-provider-fav-btn').addEventListener('click', (e) => {
-        e.stopPropagation();
-        let favs = [...(state.settings.searchFavorites || [])];
-        if (favs.includes(p.id)) {
-          favs = favs.filter(f => f !== p.id);
-        } else {
-          favs.push(p.id);
-        }
-        state.settings.searchFavorites = favs;
-        saveSettings();
-        renderSearchSettings();
-        renderSearchFavorites();
-      });
-
-      grid.appendChild(card);
-    });
-
-    catDiv.appendChild(grid);
-    container.appendChild(catDiv);
-  });
-}
-
-function renderSearchFavorites() {
-  const bar = document.getElementById('search-favorites-bar');
-  if (!bar) return;
-  const favs = state.settings.searchFavorites || [];
-  bar.innerHTML = '';
-
-  if (!favs.length) {
-    bar.innerHTML = '<span style="font-family:var(--font-mono);font-size:0.62rem;color:var(--text-dim);opacity:0.5">No pinned providers yet — click ★ on any provider to pin it here.</span>';
-    return;
-  }
-
-  favs.forEach(id => {
-    const p = getProviderById(id);
-    const isActive = state.settings.searchProvider === id;
-    const chip = document.createElement('div');
-    chip.className = 'search-fav-chip' + (isActive ? ' active-chip' : '');
-    chip.title = 'Switch to ' + p.name;
-    chip.innerHTML = `<span class="search-fav-chip-emoji">${p.emoji}</span>${esc(p.name)}`;
-    chip.addEventListener('click', () => {
-      state.settings.searchProvider = id;
-      saveSettings();
-      updateSearchBadge();
-      renderSearchSettings();
-      renderSearchFavorites();
-      toast(`Search: ${p.name}`);
-    });
-    bar.appendChild(chip);
-  });
-}
 
 
 
